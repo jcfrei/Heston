@@ -1,8 +1,15 @@
-# Heston Option Pricing Calibratin
+# Heston Option Pricing Calibration
 
-Heston1993KahlJaeckelLordRev3 is the Heston option pricing function based on the implementation by Christian Kahl, Peter Jäckel and Roger Lord. The standard Heston formula exhibits a high numerical instability of the integral, hence different approaches had to be devised to circumvent the instability. 
+Heston1993KahlJaeckelLordRev3 is the Heston option pricing function based on the implementation by Christian Kahl, Peter Jäckel and Roger Lord. The standard Heston formula exhibits a high numerical instability of the integral which are circumvented in this implementation. 
 
-This function implements an automatic estimation of the optimal alpha required for the integrand. A user generated alpha can also be used as an optional last argument.
+This function also implements an automatic estimation of the optimal alpha required for the integrand. A user generated alpha can also be used as an optional last argument.
+
+## References
+
+* Roger Lord, Christian Kahl. Optimal Fourier inversion in semi-analytical option pricing. 2007
+* Roger Lord, Christian Kahl. Why the Rotation Count Algorithm Works. 2006
+* Christian Kahl, Peter Jäckl. Not-so-complex logarithms in the Heston model. 2009
+* 
 
 ## Usage
 
