@@ -9,6 +9,7 @@ This function also implements an automatic estimation of the optimal alpha requi
 * Roger Lord, Christian Kahl. Optimal Fourier inversion in semi-analytical option pricing. 2007
 * Roger Lord, Christian Kahl. Why the Rotation Count Algorithm Works. 2006
 * Christian Kahl, Peter Jäckl. Not-so-complex logarithms in the Heston model. 2009
+* Steven L. Heston. A Closed-Form Solution for Options with Stochastic Volatility with Applications to Bond and Currency Options. 1993
 
 ## Usage
 
@@ -29,7 +30,7 @@ Usage of Heston1993KahlJaeckelLordRev3:
  *      kappa: mean reversion speed of  volatility
  *      sigma: volatility of volatility
  *      rho: correlation between returns volatility
- *      (alpha): if unset; function attempts to find an payoff-dependent optimum alpha
+ *      alpha (optional): if unset; function attempts to find an payoff-dependent optimum alpha
 
    Output: 
  *      Price for each option
