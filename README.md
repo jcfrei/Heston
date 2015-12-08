@@ -9,7 +9,6 @@ This function also implements an automatic estimation of the optimal alpha requi
 * Roger Lord, Christian Kahl. Optimal Fourier inversion in semi-analytical option pricing. 2007
 * Roger Lord, Christian Kahl. Why the Rotation Count Algorithm Works. 2006
 * Christian Kahl, Peter Jäckl. Not-so-complex logarithms in the Heston model. 2009
-* 
 
 ## Usage
 
