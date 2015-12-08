@@ -29,7 +29,7 @@ Usage of Heston1993KahlJaeckelLordRev3:
  *      kappa: mean reversion speed of  volatility
  *      sigma: volatility of volatility
  *      rho: correlation between returns volatility
- *      (alpha): alpha can be supplied by the user, otherwise the function attempts to find an payoff-dependent optimum alpha
+ *      (alpha): if unset; function attempts to find an payoff-dependent optimum alpha
 
    Output: 
  *      Price for each option
