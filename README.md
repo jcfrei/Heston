@@ -17,22 +17,23 @@ Run HestonCalibration.m to perform a sample calibration.
 Usage of Heston1993KahlJaeckelLordRev3:
 
  Input: (PC till q can be vectorized)
-       PC: 1 for Calls, 2 for Puts
-       S: Spot
-       K: Strike
-       T: Maturity
-       t: start date
-       r: interest rate
-       q: dividend
-       v0: initial variance
-       theta: long run mean variance
-       kappa: mean reversion speed of  volatility
-       sigma: volatility of volatility
-       rho: correlation between returns volatility
-       alpha: alpha can be supplied by the user, otherwise the function
-       attempts to find an payoff-dependent optimum alpha
+ *      PC: 1 for Calls, 2 for Puts
+ *      S: Spot
+ *      K: Strike
+ *      T: Maturity
+ *      t: start date
+ *      r: interest rate
+ *      q: dividend
+ *      v0: initial variance
+ *      theta: long run mean variance
+ *      kappa: mean reversion speed of  volatility
+ *      sigma: volatility of volatility
+ *      rho: correlation between returns volatility
+ *      alpha: alpha can be supplied by the user, otherwise the function
+ *      attempts to find an payoff-dependent optimum alpha
 
-   Output: Price for each option
+   Output: 
+ *      Price for each option
 
 ## Contributing
 
