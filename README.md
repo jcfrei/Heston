@@ -2,7 +2,7 @@
 
 Heston1993KahlJaeckelLordRev3 is the Heston option pricing function based on the implementation by Christian Kahl, Peter Jäckel and Roger Lord. The standard Heston formula exhibits a high numerical instability of the integral which are circumvented in this implementation. 
 
-This function also implements an automatic estimation of the optimal alpha required for the integrand. A user generated alpha can also be used as an optional last argument.
+This function works for both plain vanilla put and call options and also implements an automatic estimation of the optimal alpha required for the integrand. A user generated alpha can also be used as an optional last argument.
 
 ## References
 
