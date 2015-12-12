@@ -1,8 +1,8 @@
 # Heston Option Pricing Calibration
 
-Heston1993KahlJaeckelLordRev3 is the Heston option pricing function based on the implementation by Christian Kahl, Peter Jäckel and Roger Lord. The standard Heston formula exhibits a high numerical instability of the integral which are circumvented in this implementation. 
+Heston1993KahlJaeckelLordRev3 is the Heston option pricing function based on the implementation by Christian Kahl, Peter Jäckel and Roger Lord. The standard Heston formula exhibits a high numerical instability of the integral which is remedied in this implementa which is remedied in this implementation.
 
-This function works for both plain vanilla put and call options and also implements an automatic estimation of the optimal alpha required for the integrand. A user generated alpha can also be used as an optional last argument.
+This function works for plain vanilla put and call options and also implements an automatic estimation of the optimal alpha required for the integrand. A user generated alpha can also be used as an optional last argument.
 
 ## References
 
@@ -30,7 +30,7 @@ Usage of Heston1993KahlJaeckelLordRev3:
  *      kappa: mean reversion speed of  volatility
  *      sigma: volatility of volatility
  *      rho: correlation between returns volatility
- *      alpha (optional): if unset; function attempts to find an payoff-dependent optimum alpha
+ *      (alpha:) if unset attemtps to find a (payoff-dependent) optimal alpha
 
    Output: 
  *      Price for each option
