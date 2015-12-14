@@ -1,4 +1,4 @@
-function calls = Heston1993KahlJaeckelLordRev3(PC, S,K,T,t,r,q,v0,theta,rho,kappa,sigma, alpha)
+function [prices, alphas] = Heston1993KahlJaeckelLordRev3(PC, S,K,T,t,r,q,v0,theta,rho,kappa,sigma, alphas)
 % Heston pricing function based on the implementation suggested by
 % Roger Lord and Chrisitan Kahlin "Why the Rotation Count Algorithm
 % Works", Tinbergen Institute Discussion Paper, 2006
@@ -17,34 +17,51 @@ function calls = Heston1993KahlJaeckelLordRev3(PC, S,K,T,t,r,q,v0,theta,rho,kapp
 %       kappa: mean reversion speed of  volatility
 %       sigma: volatility of volatility
 %       rho: correlation between returns volatility
-%       alpha: alpha can be supplied by the user, otherwise the function
-%       attempts to find an payoff-dependent optimum alpha
+%       alpha: alpha can be a vector supplied by the user, otherwise the
+%       function attempts to find a payoff-dependent optimal alpha
 %
-%   Output: Price for each option
+%   Output: Price for each option, optionally generated alphas
 %
 %   Usage: Heston1993KahlJaeckelLordRev3(1, 100, 100, 20,0, 0.05, 0.0, 
 %           0.00003, 0.00003,-0.3, 0.5, 0.0008)
 %
 %   Author: Jonathan Frei, 2015
 % 
+
+    % force column vector
+    PC=PC(:);
+    S=S(:);
+    K=K(:);
+    T=T(:);
+    t=t(:);
+    r=r(:);
+    q=q(:);
+
     nos = numel(S);
-    calls=NaN(nos,1);
+    prices=NaN(nos,1);
     tau=T-t;
     mu=(r-q);
     F = S.*exp(mu.*tau);
+
+    if(~exist('alphas','var'))
+        alphas = NaN(numel(S),1);
+    elseif(numel(alphas)==1)
+        alphas = repmat(alphas,numel(S),1);
+    end
     
     alpha0=0.75;
     
     for(ind=1:nos)
-        % finding optimal alpha: see p. 7ff, Optimal Fourier inversion in semi-analytical option pricing
-        if(~exist('alpha','var'))
-            alpha = fzero( @(a) psi(a,K(ind), F(ind), kappa, theta, rho, sigma, tau(ind), v0), alpha0);
+        if(isnan(alphas(ind)))
+            % using fzero here instead of fminsearch
+            alphas(ind) = fzero( @(a) psi(a,K(ind), F(ind), kappa, theta, rho, sigma, tau(ind), v0), alpha0);
         end
-        calls(ind) =  Ralpha(F(ind), K(ind), alpha)+1/pi*integral(@(x) phi(x, K(ind), alpha, F(ind), kappa, theta, rho, sigma, tau(ind), v0) , 0, Inf);
-        if PC(ind)==2
-            calls(ind) = calls(ind) + K(ind)*exp(-r(ind)*tau(ind))-S(ind)*exp(-q(ind)*tau(ind));
+        prices(ind) =  Ralpha(F(ind), K(ind), alphas(ind))+1/pi*integral(@(x) phi(x, K(ind), alphas(ind), F(ind), kappa, theta, rho, sigma, tau(ind), v0) , 0, Inf);
+        if (PC(ind)==2)
+            prices(ind) = prices(ind) + K(ind)*exp(-r(ind)*tau(ind))-S(ind)*exp(-q(ind)*tau(ind));
         end
     end
+
     
 end
 

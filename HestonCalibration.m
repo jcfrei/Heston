@@ -14,7 +14,7 @@ t = zeros(size(T));
 tic      
 startparameters = [2 -0.6 0.25^2 1  0.2^2];
 options = optimoptions('lsqnonlin', 'Display', 'iter');
-xopt = lsqnonlin(@(x) Heston1993KahlJaeckelLordRev3(PC, S,K,T,t,r,q,x(5),x(1),x(2),x(3),x(4), 0.65) - MarketPrice,...
+xopt = lsqnonlin(@(x) Heston1993KahlJaeckelLordRev3(PC, S,K,T,t,r,q,x(5),x(1),x(2),x(3),x(4)) - MarketPrice,...
     startparameters, ... %start values
     ... % v0,theta,rho,kappa,sigma
     [eps -1+eps eps eps eps ], ... % lower bound for parameter vector
