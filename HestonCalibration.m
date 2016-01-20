@@ -11,20 +11,21 @@ MarketPrice = Price(indx);
 MarketIV = blsimpv(S, K, r, T, MarketPrice, [], q, [], (PC==1))*100;
 
 t = zeros(size(T));
-tic      
-startparameters = [2 -0.6 0.25^2 1  0.2^2];
+tic
+startparameters = [0.2^2 2 -0.6 0.25^2 1  ];
 options = optimoptions('lsqnonlin', 'Display', 'iter');
-xopt = lsqnonlin(@(x) Heston1993KahlJaeckelLordRev3(PC, S,K,T,t,r,q,x(5),x(1),x(2),x(3),x(4)) - MarketPrice,...
+xopt = lsqnonlin(@(x) Heston1993KahlJaeckelLordRev3(PC, S,K,T,t,r,q,x(1),x(2),x(3),x(4),x(5)) - MarketPrice,...
     startparameters, ... %start values
     ... % v0,theta,rho,kappa,sigma
-    [eps -1+eps eps eps eps ], ... % lower bound for parameter vector
-    [Inf 1-eps Inf  Inf Inf], ...  % upper bound for parameter vector
+    [eps eps -1+eps eps eps  ], ... % lower bound for parameter vector
+    [Inf Inf 1-eps Inf  Inf  ], ...  % upper bound for parameter vector
     options);
 toc
 
 
+
 disp(['Optimal parameter vector: ' num2str(xopt)]);
-ModelPrices =  Heston1993KahlJaeckelLordRev3(PC, S,K,T,t,r,q,xopt(5),xopt(1),xopt(2),xopt(3),xopt(4))
+ModelPrices =  Heston1993KahlJaeckelLordRev3(PC, S,K,T,t,r,q,xopt(1),xopt(2),xopt(3),xopt(4),xopt(5))
 ModelIV = blsimpv(S, K, r, T, ModelPrices, [], q, [], (PC==1))*100;
 disp(['RMSE: ' num2str(sqrt(mean((ModelPrices-MarketPrice).^2)))]);
 figure;

@@ -36,6 +36,11 @@ Usage of Heston1993KahlJaeckelLordRev3:
  *      Price for each option
  *      (Alphas)
 
+## Tips
+ 
+Smaller upper boundaries of [100 100 1-eps 100  100  ] instead of [Inf Inf 1-eps Inf Inf ] and trying different starting parameters might help if the calibration gets stuck in a local minimum.
+
+
 ## Contributing
 
 1. Fork it!
