@@ -53,8 +53,12 @@ function [prices, alphas] = Heston1993KahlJaeckelLordRev3(PC, S,K,T,t,r,q,v0,the
     
     for(ind=1:nos)
         if(isnan(alphas(ind)))
-            % using fzero here instead of fminsearch
-            alphas(ind) = fzero( @(a) psi(a,K(ind), F(ind), kappa, theta, rho, sigma, tau(ind), v0), alpha0);
+            try
+                % using fzero here instead of fminsearch
+               alphas(ind) = fzero( @(a) psi(a,K(ind), F(ind), kappa, theta, rho, sigma, tau(ind), v0), alpha0);
+            catch
+               alphas(ind) = alpha0;
+            end
         end
         prices(ind) =  Ralpha(F(ind), K(ind), alphas(ind))+1/pi*integral(@(x) phi(x, K(ind), alphas(ind), F(ind), kappa, theta, rho, sigma, tau(ind), v0) , 0, Inf);
         if (PC(ind)==2)
