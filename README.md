@@ -4,6 +4,8 @@ Heston1993KahlJaeckelLordRev3 is the Heston option pricing function based on the
 
 This function works for plain vanilla (European-style) put and call options and also implements an automatic estimation of the optimal alpha required for the integrand. A user generated alpha can also be used as an optional last argument.
 
+Included are also a Black-Scholes-Merton (BSM) function (bsmec.m) to price European vanilla options and bsmivec.m for calculating the BSM implied volatilites - in case the Financial Toolbox is not available.
+
 ## References
 
 * Roger Lord, Christian Kahl. Optimal Fourier inversion in semi-analytical option pricing. 2007
@@ -51,7 +53,7 @@ Smaller upper boundaries of [100 100 1-eps 100  100  ] instead of [Inf Inf 1-eps
 
 ## History
 
-TODO: Write history
+30/04/2016: added the bsmec.m and bsmivec.m functions
 
 
 ## License
