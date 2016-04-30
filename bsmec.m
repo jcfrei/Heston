@@ -27,9 +27,9 @@ function [ C0 ] = bsmec( S,K,T,t,r,q,sigma, C )
         (sigma.*sqrt(T-t));
     d2=d1-sigma.*sqrt(T-t);
     for(i=1:numel(C))
-        if(C==1)
+        if(C(i)==1)
             C0(i)=S(i)*normcdf(d1(i))-K(i)*exp(-(r(i)-q(i))*(T(i)-t(i)))*normcdf(d2(i));
-        elseif(C==2)
+        elseif(C(i)==2)
             C0(i)=normcdf(-d2(i))*K(i)*exp(-(r(i)-q(i))*(T(i)-t(i)))-normcdf(-d1(i))*S(i);
         else
            error('invalid option type. must be 1 for call or 2 for put'); 

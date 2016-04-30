@@ -1,5 +1,6 @@
-% Heston Model Calibration script
-% using a set of options with an index as underlying
+% Heston Model Calibration
+%
+% Options2011: set of options with on index
 % 
 % Author: Jonathan Frei, 2016
 %
