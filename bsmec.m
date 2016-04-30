@@ -8,6 +8,7 @@ function [ C0 ] = bsmec( S,K,T,t,r,q,sigma, C )
     % r: interest rate
     % q: dividend rate
     % sigma: volatility of returns of underlying
+    % C: is 1 for call and 2 for put options
     %   
     %
     %  Author: Jonathan Frei, 2016

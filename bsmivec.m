@@ -10,6 +10,7 @@ function [ sigmas, dates ] = bsmivec( C0, S,K,T,t,r, q, C )
     % t: date of spot price
     % r: vector of interest rates
     % q: vector of dividend rates
+    % C: is 1 for call and 2 for put options
     %
     %  Author: Jonathan Frei, 2016
     %
