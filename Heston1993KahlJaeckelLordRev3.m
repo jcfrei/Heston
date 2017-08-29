@@ -1,7 +1,7 @@
 function [prices, alphas] = Heston1993KahlJaeckelLordRev3(PC, S,K,T,t,r,q,v0,theta,rho,kappa,sigma, alphas)
 % Heston pricing function based on the implementation suggested by
-% Roger Lord and Chrisitan Kahlin "Why the Rotation Count Algorithm
-% Works", Tinbergen Institute Discussion Paper, 2006
+% Roger Lord and Chrisitan Kahl in "Optimal Fourier inversion in 
+% semi-analytical option pricing"
 %
 %
 % Input: (PC till q can be vectorized)
